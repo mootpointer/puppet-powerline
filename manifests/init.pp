@@ -36,15 +36,15 @@ class powerline {
       command => "rsync -aPv */*.[ot]tf ~${::boxen_user}/Library/Fonts/",
       require => [Repository["${powerline_repo}-fonts"], File["/Users/${::boxen_user}/Library/Fonts"]],
       creates => $fonts_installed_sentinal,
-      notify  => [Exec["touch ${fonts_installed_sentinal}"],
-                  Notify['powerline-font notice']];
+      notify  => Exec["touch ${fonts_installed_sentinal}"];
     "touch ${fonts_installed_sentinal}":
-      command => "/usr/bin/touch ${fonts_installed_sentinal}";
+      command => "/usr/bin/touch ${fonts_installed_sentinal}",
+      user    => 'root';
   }
 
   notify{'powerline-font notice':
-    message => 'Powerline has been installed, but your fonts are going to be screwed up! You need to modify your \
-    terminal preferences to select one of the Powerline fonts, such as AnonymousPro'
+    message => 'Powerline has been installed, but your fonts are going to be screwed up! You need to modify your terminal preferences to select one of the Powerline fonts, such as AnonymousPro',
+    subscribe => Exec['install powerline fonts to user'];
   }
 
   #TODO: Require janus, but what happens with vimrc.after?
