@@ -23,7 +23,7 @@ class powerline {
   # Has to be installed to the global python location
   exec {
     'install powerline':
-      cwd     => "${powerline_repo}/powerline",
+      cwd     => "${powerline_repo}",
       command  => ". ${boxen::config::home}/env.sh && \
         pip install -e .",
       provider => 'shell',
