@@ -24,8 +24,8 @@ class powerline {
   exec {
     'install powerline':
       cwd     => "${powerline_repo}",
-      command  => ". ${boxen::config::home}/env.sh && \
-        python setup.py install",
+      command  => "env -i bash -c \"source ${boxen::config::home}/env.sh && \
+        python setup.py install\"",
       provider => 'shell',
       user     => $::boxen_user,
       require => Repository[$powerline_repo],
