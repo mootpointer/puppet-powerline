@@ -29,7 +29,7 @@ class powerline {
       provider => 'shell',
       user     => $::boxen_user,
       require => Repository[$powerline_repo],
-      creates => "${homebrew::config::installdir}/lib/python2.7/site-packages/Powerline.egg-link";
+      creates => "${homebrew::config::installdir}/bin/powerline-render";
     'install powerline fonts to user':
       cwd     => "${powerline_repo}-fonts",
       path    => '/usr/bin',
