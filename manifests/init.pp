@@ -13,6 +13,14 @@ class powerline {
       provider => 'git';
   }
 
+  $binding_path = $shell ? {
+    bash => "bash/powerline.sh",
+    zsh => "zsh/powerline.zsh",
+    fish => "fish/powerline-setup.fish"
+    tcsh => "tcsh/powerline.tcsh",
+    default => "shell/powerline.sh"
+  }
+
   file{
     "/Users/${::boxen_user}/Library/Fonts":
       ensure => directory;
