@@ -1,2 +1,2 @@
-[ -f <%= @powerline_repo %>/powerline/bindings/zsh/powerline.zsh ] && source <%= @powerline_repo %>/powerline/bindings/zsh/powerline.zsh
+[ -f <%= @powerline_repo %>/powerline/bindings/<%= @binding_path %> ] && source <%= @powerline_repo %>/powerline/bindings/<%= @binding_path %>
 export VIRTUAL_ENV_DISABLE_PROMPT='true'  # Because powerline will handle this for us
