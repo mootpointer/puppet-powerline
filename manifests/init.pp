@@ -16,7 +16,7 @@ class powerline {
   $binding_path = $shell ? {
     bash => "bash/powerline.sh",
     zsh => "zsh/powerline.zsh",
-    fish => "fish/powerline-setup.fish"
+    fish => "fish/powerline-setup.fish",
     tcsh => "tcsh/powerline.tcsh",
     default => "shell/powerline.sh"
   }
